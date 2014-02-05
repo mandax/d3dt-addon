@@ -4,6 +4,8 @@
 # TODO
 # check if empty exists
 # errors tratment
+# fix layers creating
+# fix spacing creating
 
 import bpy 
 import math
@@ -12,9 +14,6 @@ from config import *
                               
 font = bpy.data.fonts.load(chr_font) 
 mat = bpy.data.materials[chr_material]
-
-def selectLayer(layer_nr):  
-    return tuple(i == layer_nr for i in range(0, 20))  
 
 #creating a empty object, to be a parent of all characteres
 bpy.ops.object.empty_add( 
@@ -73,5 +72,6 @@ for i, x in enumerate(range(ord('!'), ord('~'))):
     
     #hide in second layer
     chars.layers = 20*[False]
+    meshed.layers = 20*[False]
     chars.layers[1] = True
-    
+    meshed.layers[1] = True

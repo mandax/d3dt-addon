@@ -18,7 +18,8 @@ scene = bge.logic.getCurrentScene()
 objs = scene.objects
 ob_scale = objs
 
-def theText(text, target):
+def dt3d(text, target):
+    target = objs[target]
     phrase = {}
     length = len(text)
     ob_x = target.position.x
@@ -46,5 +47,5 @@ def theText(text, target):
             ob.worldPosition = [ob_x, ob_y, ob_z]
             ob.applyRotation([1.57, 0, 0], True)
             
-theText('I ae mocaaada', objs['sample'])
-theText('teting', objs['teting'])
+dt3d('Hello World', 'sample')
+dt3d('testing', 'testing')

@@ -1,12 +1,10 @@
-#     Dynamic text 3D - core
-#     Mandax <mandax.contato@gmail.com>
-#     http://blog.mandax.com.br
+#     Dynamic text 3D - bge logics
+#     Mandax (mandax.com.br)
 
 # TODO
 # fix space character - get character size
 # make wrap line
 # make reduce size
-# make Actuator
 # make scroll box
 # make virtual keyboard
 
@@ -47,5 +45,5 @@ def dt3d(text, target):
             ob.worldPosition = [ob_x, ob_y, ob_z]
             ob.applyRotation([1.57, 0, 0], True)
             
-dt3d('Hello World', 'sample')
+dt3d('Nicolal viado!', 'sample')
 dt3d('testing', 'testing')

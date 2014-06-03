@@ -1,4 +1,4 @@
-#     Dynamic text 3D - generator
+#     Dynamic text 3D generator
 #     Mandax (mandax.com.br)
 
 # TODO
@@ -10,71 +10,13 @@ from bpy.props import *
 import math
 from math import pi
 from config import *
-
-#class CreatingAlphabet():                           
-#    font = bpy.data.fonts.load(chr_font) 
-#    mat = bpy.data.materials[chr_material]
-
-    #empty obj alphabet
-#    bpy.ops.object.empty_add( 
-#    type = 'PLAIN_AXES', 
-#    view_align = False, 
-#    location = (0, 0, 0))
-#    chars = bpy.context.object
-#    chars.name = chr_parent
-#    chars.hide = chr_hide
-
-#     meshed_x = chars.location.x
-#     meshed_y = chars.location.y
-#     meshed_z = chars.location.z
-
-#     column_count = 0
-#     line_count = 0
-    
-#     for i, x in enumerate(range(ord('!'), ord('~'))):
-#         current_chr = chr(x)
-        
-#         bpy.ops.object.text_add(
-#         location = (0, 0, 0),
-#         rotation = (pi/2, 0, 0))
-        
-#         ob = bpy.context.object
-#         ob.name = current_chr
-#         ob.data.name = current_chr
-#         ob.data.body = current_chr
-#         ob.data.align = 'CENTER'
-#         ob.data.size = chr_size
-#         ob.data.bevel_depth = chr_bevel_depth
-#         ob.data.bevel_resolution = chr_bevel_resolution
-#         ob.data.extrude = chr_extrude
-#         ob.data.materials.append(mat)
-#         ob.data.font = font
-#         ob.parent = chars
-
-#         bpy.ops.object.convert(target='MESH', keep_original = False)
-#         meshed = bpy.data.objects[current_chr]
-#         meshed.hide = chr_hide                                         
-#         meshed.hide_render = chr_hide 
-#         meshed_x = column_count*(meshed.scale.x*chr_spacing)
-        
-#         column_count = column_count+1
+                         
       
-#         if column_count == columns:
-#             column_count = 0
-#             line_count = line_count+1     
-#             meshed_z = -1*(line_count*(meshed.scale.z*chr_spacing))
-            
-        #position        
-#         meshed.location.x = meshed_x
-#         meshed.location.y = meshed_y
-#         meshed.location.z = meshed_z
-        
-        
 def initDefaultProps(scn):
     bpy.types.Scene.objName = StringProperty(
         name = "Object name",
-        description = "Character parent name")
-    scn['objName'] = "character"
+        description = "Alphabet parent name")
+    scn['objName'] = "dt3d_alphabet"
     
     bpy.types.Scene.txtMaterial = StringProperty(
         name = "Material",
@@ -127,7 +69,7 @@ initDefaultProps(bpy.context.scene)
 
         
 class drawPanel(bpy.types.Panel):
-    bl_label = "DT3D Character Generator"
+    bl_label = "DoGUI - Characters generator"
     bl_space_type = "VIEW_3D"
     bl_region_type = "TOOL_PROPS"
  
@@ -161,11 +103,68 @@ class TextGenerator(bpy.types.Operator):
     def execute(self, context):
         scn = context.scene
         
+        font = bpy.data.fonts.load(scn.txtFont) 
+        mat = bpy.data.materials[scn.txtMaterial]
+
+        #empty obj alphabet
+        bpy.ops.object.empty_add( 
+        type = 'PLAIN_AXES', 
+        view_align = False, 
+        location = (0, 0, 0))
+        chars = bpy.context.object
+        chars.name = scn.objName
+        chars.hide = scn.txtHide
+
+        meshed_x = chars.location.x
+        meshed_y = chars.location.y
+        meshed_z = chars.location.z
+
+        column_count = 0
+        line_count = 0
+    
+        for i, x in enumerate(range(ord('!'), ord('~'))):
+            current_chr = chr(x)
+        
+            bpy.ops.object.text_add(
+            location = (0, 0, 0),
+            rotation = (pi/2, 0, 0))
+        
+            ob = bpy.context.object
+            ob.name = current_chr
+            ob.data.name = current_chr
+            ob.data.body = current_chr
+            ob.data.align = 'CENTER'
+            ob.data.size = scn.txtSize
+            ob.data.bevel_depth = scn.txtBevelDepth
+            ob.data.bevel_resolution = scn.txtBevelResolution
+            ob.data.extrude = scn.txtExtrude
+            ob.data.materials.append(mat)
+            ob.data.font = font
+            ob.parent = chars
+
+            bpy.ops.object.convert(target='MESH', keep_original = False)
+            meshed = bpy.data.objects[current_chr]
+            meshed.hide = chr_hide                                         
+            meshed.hide_render = chr_hide 
+            meshed_x = column_count*(meshed.scale.x*scn.txtSpacing)
+        
+            column_count = column_count+1
+      
+            if column_count == scn.txtColumns:
+                column_count = 0
+                line_count = line_count+1     
+                meshed_z = -1*(line_count*(meshed.scale.z*scn.txtSpacing))
+           
+            #position        
+            meshed.location.x = meshed_x
+            meshed.location.y = meshed_y
+            meshed.location.z = meshed_z
+       
         print('GENERATED!')
         
         return{'FINISHED'}
 
-# -- #
+
     
 def register():
     bpy.utils.register_module(__name__)

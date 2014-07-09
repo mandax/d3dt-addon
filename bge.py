@@ -45,5 +45,5 @@ def dt3d(text, target):
             ob.worldPosition = [ob_x, ob_y, ob_z]
             ob.applyRotation([1.57, 0, 0], True)
             
-dt3d('Nicolal viado!', 'sample')
+dt3d('Testing!', 'sample')
 dt3d('testing', 'testing')

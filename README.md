@@ -1,6 +1,8 @@
 dt3d-addon - concept version
 ==========
 
+*DISCLAIMER: I'm not a programmer, just a canny artist*
+
 Dynamic Text 3D addon for Blender 3D
 This is the first concept to generate 3d characters on blender and map these for use it on blender game engine.
 
@@ -18,7 +20,7 @@ This is the first concept to generate 3d characters on blender and map these for
 
 	![Generator Panel](img/step01.jpg)
 
-2.  To use on BGE set "Hide characters" off and if you want to use the characters just as a characters map, make sure that you are generating it in a different layer:
+2.  To use on BGE turn the "Hide characters" off and if you want to use the characters just as a map, make sure that you are generating it in a different layer:
 
     ![Different Layer](img/step03.jpg)
 
@@ -36,7 +38,7 @@ This is the first concept to generate 3d characters on blender and map these for
 
     ![Including BGE script](img/step04.jpg)
 
-2. Create a empty object to be the text guide as an initial point and position/scale reference:
+2. Create a empty object to be the text location/rotation/scale guide:
 
 	![Empty object](img/step04.1.jpg)
 

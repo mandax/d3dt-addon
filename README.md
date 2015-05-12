@@ -14,7 +14,7 @@ This is the first concept to generate 3d characters on blender and map these for
 1. As a concept version the addon package is not ready yet so, to getting start you need to **run** a **[gen.py](https://github.com/mandax/dt3d-addon/blob/master/gen.py)** on blender then you'll get access to the generate panel.
 
  	On this panel you can set the configurations of the characters that will be generated.
-	*(I recommend you use a **bitmap font**, this kind of font will create a better 3d shape)*
+	*(I recommend you use a bitmap font, this kind of font will create a better 3d shape)*
 
 	![Generator Panel](img/step01.jpg)
 
@@ -45,6 +45,6 @@ This is the first concept to generate 3d characters on blender and map these for
 	![Calling text](img/step05.jpg)
     *I just called this on the bge.py script, but you can call it in another place after bge.py was loaded.*
 
-4. Run your game*(Hit **P**)* and there we go!
+4. Run your game*(Hit P)* and there we go!
 
 	![Game run](img/step06.jpg)

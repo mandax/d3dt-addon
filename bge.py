@@ -9,11 +9,11 @@
 # make virtual keyboard
 
 import bge
-from config import chr_parent, chr_spacing
 
 controller = bge.logic.getCurrentController()
 scene = bge.logic.getCurrentScene()
 objs = scene.objects
+objs_inactive = scene.objectsInactive
 ob_scale = objs
 
 def dt3d(text, target):
@@ -24,6 +24,7 @@ def dt3d(text, target):
     ob_y = target.position.y
     ob_z = target.position.z
     ob_col = 0
+    chr_spacing = 0.3
     
     for x in range (0, length):
         this = text[x]
@@ -45,5 +46,4 @@ def dt3d(text, target):
             ob.worldPosition = [ob_x, ob_y, ob_z]
             ob.applyRotation([1.57, 0, 0], True)
             
-dt3d('Testing!', 'sample')
-dt3d('testing', 'testing')
+dt3d('This is a test', 'text_point')

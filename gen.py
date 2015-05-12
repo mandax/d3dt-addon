@@ -9,7 +9,6 @@ import bpy
 from bpy.props import *
 import math
 from math import pi
-from config import *
                          
       
 def initDefaultProps(scn):
@@ -143,9 +142,9 @@ class TextGenerator(bpy.types.Operator):
             ob.parent = chars
 
             bpy.ops.object.convert(target='MESH', keep_original = False)
-            meshed = bpy.data.objects[current_chr]
-            meshed.hide = chr_hide                                         
-            meshed.hide_render = chr_hide 
+            meshed = bpy.data.objects[current_chr]                               
+            meshed.hide_render = scn.txtHide
+            meshed.hide = scn.txtHide
             meshed_x = column_count*(meshed.scale.x*scn.txtSpacing)
         
             column_count = column_count+1

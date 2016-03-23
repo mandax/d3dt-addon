@@ -1,12 +1,5 @@
-#     Dynamic text 3D - bge logics
-#     Mandax (mandax.com.br)
-
-# TODO
-# fix space character - get character size
-# make wrap line
-# make reduce size
-# make scroll box
-# make virtual keyboard
+#     Dynamic text 3D - bge script
+#     Mandax - Anderson Ferreira Pinto (mandax.contato@gmail.com)
 
 import bge
 

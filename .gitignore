@@ -199,4 +199,6 @@ tmp
 .DS_Store
 .idea
 public/
+*.blend
 *.blend1
+*.zip

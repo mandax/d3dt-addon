@@ -1,8 +1,6 @@
 dt3d-addon - concept version
 ==========
 
-*DISCLAIMER: I'm not a programmer, just a canny artist*
-
 Dynamic Text 3D addon for Blender 3D
 This is the first concept to generate 3d characters on blender and map these for use it on blender game engine.
 

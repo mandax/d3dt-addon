@@ -1,7 +1,7 @@
-dt3d-addon - concept version
+d3dt-addon - concept version
 ==========
 
-Dynamic Text 3D addon for Blender 3D
+Dynamic 3D Text addon for Blender 3D
 This is the first concept to generate 3d characters on blender and map these for use it on blender game engine.
 
 ##Getting Started

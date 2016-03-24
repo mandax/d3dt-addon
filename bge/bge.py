@@ -1,6 +1,3 @@
-#     Dynamic text 3D - bge script
-#     Mandax - Anderson Ferreira Pinto (mandax.contato@gmail.com)
-
 import bge
 
 controller = bge.logic.getCurrentController()
@@ -9,7 +6,7 @@ objs = scene.objects
 objs_inactive = scene.objectsInactive
 ob_scale = objs
 
-def dt3d(text, target):
+def d3dt(text, target):
     target = objs[target]
     phrase = {}
     length = len(text)
@@ -39,4 +36,4 @@ def dt3d(text, target):
             ob.worldPosition = [ob_x, ob_y, ob_z]
             ob.applyRotation([1.57, 0, 0], True)
             
-dt3d('This is a test', 'text_point')
+d3dt('This is a test', 'text_point')

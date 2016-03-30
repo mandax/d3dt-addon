@@ -48,7 +48,7 @@ def initialize():
         
     bpy.types.Scene.d3dt_txtHide = BoolProperty(
         name = "Hide characters",
-        default = 1, 
+        default = 0, 
         description = "Check this if you want to hide the generated characters.")
     
     return

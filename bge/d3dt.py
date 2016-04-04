@@ -7,11 +7,10 @@ collection = { obj.name: obj for obj in scene.objectsInactive if obj.parent and 
 
 def add(charObj):
   obj = scene.addObject(charObj, controller.owner, 0)
-  obj.orientation = controller.owner.orientation
+  obj.setParent(controller.owner)
   obj.visible = True
 
 def spawn(text):
-  i = 0
   for char in text:
     if char != ' ':
       add(collection[char])

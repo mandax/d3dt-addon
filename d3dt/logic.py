@@ -30,10 +30,10 @@ class TextGenerator(bpy.types.Operator):
     
         for i, x in enumerate(range(ord('!'), ord('~'))):
             current_chr = chr(x)
-        
+            
             bpy.ops.object.text_add(
-            location = (0, 0, 0),
-            rotation = (pi/2, 0, 0))
+              location = (0, 0, 0),
+              rotation = (pi/2, 0, 0))
         
             ob = bpy.context.object
             ob.name = current_chr
@@ -64,6 +64,8 @@ class TextGenerator(bpy.types.Operator):
             meshed.location.x = meshed_x
             meshed.location.y = meshed_y
             meshed.location.z = meshed_z
+
+            bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
        
         print('GENERATED!')
         

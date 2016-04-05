@@ -65,7 +65,7 @@ class TextGenerator(bpy.types.Operator):
             meshed.location.y = meshed_y
             meshed.location.z = meshed_z
 
-            bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
+            bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
        
         print('GENERATED!')
         
